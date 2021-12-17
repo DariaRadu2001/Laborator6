@@ -171,6 +171,8 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(box, 450, 250);
         stage.setScene(scene);
         stage.setTitle("Student der Universität");
+        ListView<String> listView = new ListView<>();
+        listView.setStyle("-fx-font-size: 15px; -fx-font-family: 'SketchFlow Print';");
         button2.setOnAction(actionEvent -> {
 
             List<Student> listeStudenten = new ArrayList<>();
@@ -186,9 +188,10 @@ public class HelloApplication extends Application {
                     break;
                 }
             }
-            Label labelKredits = new Label("Sie haben insgesamt " + anzahlKredits + " Kredits.");
-            labelKredits.setFont(new Font("Cambria", 18));
-            box.getChildren().add(labelKredits);
+            listView.getItems().clear();
+            String message = "Sie haben insgesamt " + anzahlKredits + " Kredits.";
+            listView.getItems().add(message);
+            box.getChildren().add(listView);
         });
 
         stage.show();
@@ -196,13 +199,13 @@ public class HelloApplication extends Application {
     }
 
     /**
-     * wennn der Lehrer existiert
+     * wenn der Lehrer existiert
      * @param ID des Lehrers
      */
     public void gutesLogLehrer(Long ID) {
         input();
         Button button = new Button();
-        button.setText("Sehen Sie die Studenten");
+        button.setText("Sehen Sie die Studenten + Refresh");
         button.setStyle(settings);
         Stage stage = new Stage();
         input();
@@ -216,7 +219,10 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(box, 350, 250);
         stage.setScene(scene);
         stage.setTitle("Lehrer der Universität");
+        ListView<String> listView = new ListView<>();
+        listView.setStyle("-fx-font-size: 15px; -fx-font-family: 'SketchFlow Print';");
         button.setOnAction(event -> {
+            listView.getItems().clear();
             List<Kurs> alleKurse = null;
             try {
                 alleKurse = kursController.getAll();
@@ -241,14 +247,14 @@ public class HelloApplication extends Application {
                 e.printStackTrace();
             }
             int ct = 0;
+
             for(Enrolled e : enrolled)
             {
+
                 if(kurseLehrer.contains(e.getIdKurs()))
                 {
                     ct++;
-                    Label label1 = new Label(String.valueOf((e.getIdStudent())));
-                    label1.setFont(new Font("Cambria", 15));
-                    box.getChildren().add(label1);
+                    listView.getItems().add(String.valueOf((e.getIdStudent())));
                 }
             }
             if(ct == 0)
@@ -257,9 +263,12 @@ public class HelloApplication extends Application {
                 label1.setFont(new Font("Cambria", 15));
                 box.getChildren().add(label1);
             }
+            box.getChildren().add(listView);
         });
+
         stage.show();
     }
+
 
     /**
      * gibt die Anwendungen des Students

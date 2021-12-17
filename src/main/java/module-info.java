@@ -13,4 +13,8 @@ module com.example.laborator6 {
 
     opens com.example.laborator6 to javafx.fxml;
     exports com.example.laborator6;
+
+    exports Repository;
+
+
 }
