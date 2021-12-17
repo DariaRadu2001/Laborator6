@@ -3,7 +3,6 @@ module Laborator {
     requires javafx.fxml;
     requires javafx.web;
     requires java.management;
-
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires validatorfx;
@@ -11,10 +10,12 @@ module Laborator {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires java.sql;
+    requires org.junit.jupiter.api;
+    requires org.junit.platform.commons;
 
     opens com.example.laborator6 to javafx.fxml;
     exports com.example.laborator6;
 
-    opens Repository to java.management;
+    opens Repository to java.management, org.junit.platform.engine, org.junit.platform.commons;
     exports Repository;
 }

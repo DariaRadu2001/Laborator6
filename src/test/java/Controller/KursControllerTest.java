@@ -1,5 +1,6 @@
 package Controller;
 
+import Controller.KursController;
 import Exception.DasElementExistiertException;
 import Modele.Kurs;
 import Repository.EnrolledRepository;

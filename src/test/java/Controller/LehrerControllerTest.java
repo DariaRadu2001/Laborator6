@@ -1,5 +1,6 @@
 package Controller;
 
+import Controller.LehrerController;
 import Modele.Lehrer;
 import Repository.LehrerRepository;
 import org.junit.jupiter.api.BeforeEach;
