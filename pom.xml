@@ -148,7 +148,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.laborator6/com.example.laborator6.HelloApplication</mainClass>
+                            <mainClass>com.example.laborator6/HelloApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>

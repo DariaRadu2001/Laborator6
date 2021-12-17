@@ -1,7 +1,8 @@
-module com.example.laborator6 {
+module Laborator {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires java.management;
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
@@ -14,7 +15,6 @@ module com.example.laborator6 {
     opens com.example.laborator6 to javafx.fxml;
     exports com.example.laborator6;
 
+    opens Repository to java.management;
     exports Repository;
-
-
 }
